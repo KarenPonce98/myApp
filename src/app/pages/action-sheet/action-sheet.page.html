@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Regresar" defaultHref="/"></ion-back-button>
+
+    </ion-buttons>
+    <ion-title>action-sheet</ion-title>
+    <ion-buttons slot="end">
+   <!--
+      <ion-avatar >
+      <ion-img src="/assets/shapes.svg"> </ion-img>
+    </ion-avatar>
+    -->
+    <ion-icon name="person"> </ion-icon> 
+
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button expand="full" color="primary" (click)="presentActionSheet()">
+    Mostrar Action Sheet
+  </ion-button>
+  <ion-img src="/assets/fav.jpg"></ion-img>
+</ion-content>

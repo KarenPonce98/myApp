@@ -1,20 +1,36 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header color=" success" >
+  <ion-toolbar >
+    
     <ion-title>
-      Blank
+    Videojuegos
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content color="dark">
+  
+  
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-list color="success">
+    <ion-item routerLink="/alert">
+      <ion-label >Ayuda</ion-label>
+    </ion-item>
+    <ion-item routerLink="/action-sheet">
+      <ion-label>Favoritos</ion-label>
+    </ion-item>
+    <ion-item routerLink="/formulario">
+      <ion-label>Cuenta de usuario</ion-label>
+    </ion-item>
+    <ion-item routerLink="/card">
+      <ion-label>Categorias</ion-label>
+    </ion-item>
+    <ion-item routerLink="/grid">
+      <ion-label>Videojuegos</ion-label>
+    </ion-item>
+    <ion-item routerLink="/formulario2">
+      <ion-label>datos usuario</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-img src="/assets/game.jpg"></ion-img>
+  
 </ion-content>

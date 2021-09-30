@@ -1,0 +1,141 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Captura de datos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="danger" padding >
+  <form #formulario="ngForm">
+    <!--PERSONAL-->
+    <ion-list>
+      <ion-list-header>
+        <ion-text>
+          <h3>Datos Personales</h3>
+        </ion-text>
+      </ion-list-header>
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input type="text" name="nombre" [(ngModel)]="info.personal.name" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Apellidos</ion-label>
+        <ion-input type="text" name="apellidos" [(ngModel)]="info.personal.lastname" required></ion-input>
+      </ion-item>
+      <ion-item *ngFor="let em of info.personal.emails; let i = index; trackBy: trackByFn">
+        <ion-label position="floating">Email {{i+1}}</ion-label>
+        <ion-input type="email" name="email{{i}}" [(value)]="em" [(ngModel)]="info.personal.emails[i]"
+          pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required>
+        </ion-input>
+        <ion-icon name="remove-circle-outline" slot="end" (click)="removeElement(info.personal.emails, i)"></ion-icon>
+        <ion-icon name="add-circle-outline" slot="end" (click)="addElement(info.personal.emails, '')"></ion-icon>
+      </ion-item>
+
+    </ion-list>
+
+
+    <!--juegos-->
+    <ion-list>
+      <ion-list-header>
+        <ion-text>
+          <h3> </h3>
+        </ion-text>
+      </ion-list-header>
+
+      <div *ngFor="let g of info.torneos; let i = index; trackBy: trackByFn">
+        <ion-item lines="none">
+          <ion-label position="floating">Nombre del torneo</ion-label>
+          <ion-input type="text" name="names{{i}}" [(ngModel)]="info.torneos[i].name" required></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label position="floating">categoria</ion-label>
+          <ion-input type="text" name="category{{i}}" [(ngModel)]="info.torneos[i].category" required></ion-input>
+        </ion-item>
+        <ion-row>
+          <ion-col size="6">
+            <ion-item lines="none">
+              <ion-label position="floating">Inicio</ion-label>
+              <ion-datetime name="academyStart{{i}}" [(ngModel)]="1+info.academic[i].start" displayFormat="YYYY"
+                min="1981" max={{fecha.getFullYear()}}></ion-datetime>
+            </ion-item>
+          </ion-col>
+          <ion-col size="6">
+            <ion-item lines="none">
+              <ion-label position="floating">Fin</ion-label>
+              <ion-datetime name="academyEnd{{i}}" [(ngModel)]="1+info.academic[i].end" displayFormat="YYYY" min="1981"
+                max={{fecha.getFullYear()}}></ion-datetime>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-item>
+          <ion-icon name="remove-circle-outline" slot="end" (click)="removeElement(info.academic, i)"></ion-icon>
+          <ion-icon name="add-circle-outline" slot="end" (click)="addAcademic()"></ion-icon>
+        </ion-item>
+      </div>
+    </ion-list>
+
+
+    <!--EXPERIENCE-->
+    <ion-list>
+      <ion-list-header>
+        <ion-text>
+          <h3>Experiencia en videojuegos</h3>
+        </ion-text>
+      </ion-list-header>
+
+      <div *ngFor="let g of info.experience; let i = index; trackBy: trackByFn">
+        <ion-item lines="none">
+          <ion-label position="floating">Categoria</ion-label>
+          <ion-input type="text" name="category{{i}}" [(ngModel)]="info.experience[i].category" required></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label position="floating">Consola</ion-label>
+          <ion-input type="text" name="console{{i}}" [(ngModel)]="info.experience[i].console" required></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+            <ion-label position="floating">Tiempo practicado</ion-label>
+            <ion-input type="text" name="time{{i}}" [(ngModel)]="info.experience[i].time" required></ion-input>
+          </ion-item>
+      </div>
+    </ion-list>
+
+
+    <!--SKILLS-->
+    <ion-list>
+      <ion-list-header>
+        <ion-text>
+          <h3>Habilidades</h3>
+        </ion-text>
+      </ion-list-header>
+
+      <div *ngFor="let g of info.skills; let i = index; trackBy: trackByFn">
+        <ion-item lines="none">
+          <ion-label position="floating">Habilidad</ion-label>
+          <ion-input type="text" name="skill{{i}}" [(ngModel)]="info.skills[i].skill" required></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+            <ion-label position="floating">Herramientas</ion-label>
+            <ion-input type="text" name="herramienta{{i}}" [(ngModel)]="info.skills[i].herramienta" required></ion-input>
+          </ion-item>
+        <ion-item lines="none">
+          <ion-label >Nivel</ion-label>
+          <ion-range min="1" max="5" step="1" snaps="true" name="rate{{i}}" [(ngModel)]="info.skills[i].rate" requerid>
+            <ion-label slot="start">Básico</ion-label>
+            <ion-label slot="end">Experto</ion-label>
+          </ion-range>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="remove-circle-outline" slot="end" (click)="removeElement(info.skills, i)"></ion-icon>
+          <ion-icon name="add-circle-outline" slot="end" (click)="addSkill()"></ion-icon>
+        </ion-item>
+      </div>
+    </ion-list>
+
+    <ion-button type="submit" expand="full"  [routerLink]="['/datos-formulario/',info.personal.name]"> Enviar</ion-button>
+    <!--
+    <ion-button type="submit" [disabled]="formulario.invalid" expand="full" (click)="submitClick()"> Enviar</ion-button>
+    -->
+  </form>
+</ion-content>

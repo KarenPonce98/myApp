@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Nuevo Formulario</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <form #formulario="ngForm">
+      <ion-input placeholder="nombre" name="nombre" [(ngModel)]="nombre" required></ion-input>
+      <ion-input placeholder="apellido" name="apellido" [(ngModel)]="apellidos" required></ion-input>
+      <ion-item >
+        <ion-label position="floating">user</ion-label>
+        <ion-input type="text" name="usuario" [(ngModel)]="usuario" required></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label position="floating">email</ion-label>
+        <ion-input type="email" name="email" 
+        pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+        [(ngModel)]="email" required></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label position="floating">password</ion-label>
+        <ion-input type="password" name="password" [(ngModel)]="password" required></ion-input>
+      </ion-item>
+  
+      <ion-button expand="full" (click)="onClick()" [disabled]="formulario.invalid">Aceptar</ion-button>
+    </form>
+  </ion-content>

@@ -1,0 +1,116 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Videojuegos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  padding>
+  <ion-grid fixed fullscreen>
+    <ion-row>
+      <ion-col size="12" size-lg="3" 
+      size-md="4" size-sm="6" size-xs="12"
+      *ngFor="let i of [1]">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              <ion-item lines="none">
+                <ion-avatar slot="start">
+                  <ion-img src="/assets/icon/itesz.jpg"></ion-img>
+                </ion-avatar>
+                Donkey kong
+              </ion-item>
+            </ion-card-title>
+            <ion-card-subtitle>
+            
+            </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-img src="/assets/aventura.jpeg"></ion-img>
+            <ion-label>
+             videojuego de aventura el cual consiste en que donkey kong recolecte la mayor cantidad
+             de bananas, asi como letras para formar su nombre y una vez que lo haga pasa a un nuevo nivel.
+             Mientras recorre todo se encuentra con diversos obstaculos.
+            </ion-label>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+<ion-content padding>
+  <ion-grid fixed fullscreen>
+    <ion-row>
+      <ion-col size="12" size-lg="3" 
+      size-md="4" size-sm="6" size-xs="12"
+      *ngFor="let i of [1]">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              <ion-item lines="none">
+                <ion-avatar slot="start">
+                  <ion-img src="/assets/icon/car.jpg"></ion-img>
+                </ion-avatar>
+                Mario Bross
+              </ion-item>
+            </ion-card-title>
+            <ion-card-subtitle>
+            <!--  <p align="right">13 de Mayo de 2019</p>-->
+            </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-img src="/assets/carrera.jpeg"></ion-img>
+            <ion-label>
+             videojuego de de carreras en el cual en diversos niveles debes recorrer pistas diferentes cada una con obstaculos
+             diferentes, asi como bonus. Cada que se avanza a un nuevo nivel la dificultad aumenta.
+             Se puede elegir contra cuantos jugar asi como su avatar.
+            </ion-label>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+<ion-content padding>
+  <ion-grid fixed fullscreen>
+    <ion-row>
+      <ion-col size="12" size-lg="3" 
+      size-md="4" size-sm="6" size-xs="12"
+      *ngFor="let i of [1]">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              <ion-item lines="none">
+                <ion-avatar slot="start">
+                  <ion-img src="/assets/icon/war.jpg"></ion-img>
+                </ion-avatar>
+                Call of Duty
+              </ion-item>
+            </ion-card-title>
+            <ion-card-subtitle>
+            <!--  <p align="right">13 de Mayo de 2019</p>-->
+            </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-img src="/assets/guerra.jpeg"></ion-img>
+            <ion-label>
+             videojuego de guerra en el cual se te asignan diferentes misiones conforme vas avanzando de nivel,
+             se te asigna junto a un batallon los cuales estan junto a ti peleando durante todo el juego.
+             Al final de varias misiones se asigna la mas importante, si se pasa se gana.
+             se puede elegir la dificultad del juego.
+             
+            </ion-label>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
